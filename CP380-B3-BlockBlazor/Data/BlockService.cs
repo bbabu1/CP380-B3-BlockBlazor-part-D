@@ -21,6 +21,7 @@ namespace CP380_B3_BlockBlazor.Data
         //
         // TODO: Add a constructor with IConfiguration and IHttpClientFactory arguments
         //
+        private readonly JsonSerializerOptions JsonSerializerOptions = new JsonSerializerOptions(JsonSerializerDefaults.Web);
         public BlockService(IHttpClientFactory httpClientFactory, IConfiguration configuration)
         {
             _httpCl = httpClientFactory.CreateClient();
