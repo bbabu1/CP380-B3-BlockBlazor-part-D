@@ -37,6 +37,7 @@ namespace CP380_B3_BlockBlazor
             //       - pending transactions service
             //       - block list service
             //
+            services.AddSingleton<MiningService>();
             services.AddSingleton<PendingTransactionService>();
             services.AddSingleton<BlockService>();
             
