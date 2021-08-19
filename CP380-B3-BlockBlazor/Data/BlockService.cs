@@ -43,7 +43,21 @@ namespace CP380_B3_BlockBlazor.Data
 
             return Array.Empty<Block>();
         }
+        public async Task<Block> SubmitNewBlockAsync(Block block)
+        {
+            var content = new StringContent(
+               JsonSerializer.Serialize(block, JsonSerializerOptions),
+               System.Text.Encoding.UTF8,
+               "application/json"
+               );
 
+            var response = await _httpCl.PostAsync(_conf["url"], content);
+            if (res.IsSuccessStatusCode)
+                return block;
+            else
+                return null;
+        }
     }
 }
 
+   
